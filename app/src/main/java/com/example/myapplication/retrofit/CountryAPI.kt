@@ -7,6 +7,6 @@ import retrofit2.http.Path
 
 interface CountryAPI {
 
-    @GET("name/Ban")
+    @GET("name/all")
     suspend fun getCountryDetails(): Response<List<MainCountryDetails>>
 }

@@ -16,7 +16,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun getRetrofitServiceInstant(retrofit: Retrofit, name: String): CountryAPI {
+    fun getRetrofitServiceInstant(retrofit: Retrofit): CountryAPI {
         return retrofit.create(CountryAPI::class.java)
     }
 
