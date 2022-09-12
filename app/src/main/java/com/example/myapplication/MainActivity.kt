@@ -25,8 +25,9 @@ class MainActivity : AppCompatActivity() {
         rcView = findViewById(R.id.recyclerViewID)
 
 
-
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        viewModel.getCountries("united")
+
 
         viewModel.country.observe(this, Observer { response ->
             rcView.layoutManager = LinearLayoutManager(this)

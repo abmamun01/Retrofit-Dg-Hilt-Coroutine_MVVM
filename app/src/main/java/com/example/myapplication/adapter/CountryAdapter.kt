@@ -28,7 +28,6 @@ class CountryAdapter(var context: Context, var countryDetails: List<MainCountryD
         holder.cLanguage.text = countryDetails.get(position).languages.toString()
         if (countryDetails.get(position).postalCode != null) {
             holder.cPostalCode.text = countryDetails.get(position).postalCode.toString()
-
         }
         holder.cCurrency.text = countryDetails.get(position).currencies.toString()
         holder.cPopulation.text = countryDetails.get(position).population.toString()
@@ -36,7 +35,6 @@ class CountryAdapter(var context: Context, var countryDetails: List<MainCountryD
     }
 
     override fun getItemCount(): Int {
-
         return countryDetails.size
     }
 

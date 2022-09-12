@@ -17,22 +17,30 @@ class MainActivityViewModel @Inject constructor(val repository: CountryRepositor
 
     val _country = MutableLiveData<List<MainCountryDetails>>()
     val country: LiveData<List<MainCountryDetails>> get() = _country
+    val currentQuery = MutableLiveData(DEFAULT_QUERY)
 
-    init {
+/*    init {
         getCountries()
-    }
+    }*/
 
-    private fun getCountries() {
+    public fun getCountries(search: String) {
 
         viewModelScope.launch {
-            repository.getCountries().let {
-                response ->
-                if (response.isSuccessful ){
+            repository.getCountries(search).let { response ->
+                if (response.isSuccessful) {
                     _country.postValue(response.body())
-                }else{
+                } else {
                     Log.d("ApiError", "getCountries: ")
                 }
             }
         }
+    }
+
+    fun searchCountry(query: String) {
+        currentQuery.value = query
+    }
+
+    companion object {
+        private const val DEFAULT_QUERY = "bn"
     }
 }

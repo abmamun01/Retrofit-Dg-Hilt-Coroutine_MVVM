@@ -7,6 +7,8 @@ import retrofit2.http.Path
 
 interface CountryAPI {
 
-    @GET("name/all")
-    suspend fun getCountryDetails(): Response<List<MainCountryDetails>>
+    @GET("name/{name}")
+    suspend fun getCountryDetails(
+        @Path("name") name: String
+    ): Response<List<MainCountryDetails>>
 }

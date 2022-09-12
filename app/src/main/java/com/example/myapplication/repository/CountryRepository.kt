@@ -5,11 +5,11 @@ import javax.inject.Inject
 
 class CountryRepository @Inject constructor(val api: CountryAPI) {
 
-    suspend fun getCountries() = api.getCountryDetails()
+    suspend fun getCountries(search: String) =
+        api.getCountryDetails(search)
 
 
-
-    fun getSearchedCountryDetails(query:String){
+    fun getSearchedCountryDetails(query: String) {
 
     }
 }
